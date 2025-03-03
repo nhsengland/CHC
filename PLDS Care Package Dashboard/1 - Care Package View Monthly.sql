@@ -1,3 +1,12 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+-- View calculates the number of days that a care package has been open for and assigns it to the relevant duration bucket.
+-- The field 'FinancialYear' is assigned to each record based on the Reporting Period.  
+-- WHERE clause excludes closed care packages that are being continually submitted and historic care packages (DQ issues).
+-- View is on a 'per Reporting Period' basis. This means that if a Sub ICB misses a submission or a care package record is rejected for a certain 
+-- reporting period, the care package(s) will not be counted for that reporting month even if they were open.
+-- View feeds the tabs of the Care Package dashboard that are prefixed with 'MONTHLY'. 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 SELECT hd.[UniqSubmissionID]			
       ,hd.[OrgIDComm] AS [SubICBCode]		
       ,hd.[Sub_ICB_Name] 	
