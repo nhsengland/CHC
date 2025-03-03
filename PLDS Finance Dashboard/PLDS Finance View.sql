@@ -1,3 +1,12 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+-- View calculates the number of days that a care package was open during each Reporting Period (month) in which it was submitted.
+-- This duration field is then used to calculate the cost per reporting period with the formula dependent on the [ContractUnitFrequency]. 
+-- See WHERE clause for exclusions to the data.
+-- Providers, Subjective codes and Cost centre codes are pulled in from reference tables.
+-- Since the cost is calculated per reporting period, if a submission has been missed or key fields such as [ContractUnitFrequency], [ContractUnitCost]
+-- or [CommissionedWeeklyHoursOfCare] are incorrect/incomplete/missing, it will affect a Sub ICB’s cumulative YTD Total Cost figure.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 SELECT			
 h.[RPStartDate]
 ,h.[RPEndDate]
