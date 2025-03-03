@@ -1,3 +1,10 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- View returns latest record per reporting period (re-submissions create duplicates which are all included within the Header table, so view excludes the earlier versions) 
+-- View makes accomodations for lower tier submitters (past and present)
+-- See comments throughout script for detail of what each section is doing
+-- Numbered comments are steps to take when a lower tier submitter migrates to making singular submissions (See How To Guide for more detail on this)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 SELECT 
  a.*
 ,d.Sub_ICB_Location_Name_Local_Reference AS [Sub_ICB_Name]
