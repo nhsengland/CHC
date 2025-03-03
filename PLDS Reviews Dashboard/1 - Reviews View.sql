@@ -1,3 +1,13 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Since [UniqCarePackageID] is not a truly unique identifier, [UniqCarePackageID] and [LocalPatientID] are concatenated to create 'CarePackageLocalPatientID'
+-- which acts as a truly unique care package identifier.
+-- The [RecordEndDate] field was built incorrectly in the 103_Review table which makes it difficult to identify the most recent record per review. Therefore,
+-- a flag column, 'LatestRecord', has been built in the script to do this.
+-- Another column, 'ReviewNumber', has also been built, to order the reviews per care package i.e. the earliest review associated with a care package 
+-- has ReviewNumber = 1, the next review that took place has ReviewNumber = 2 etc.
+-- This view feeds the PLDS_Reviews_Analysis_SR view.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------	
+
 WITH CTE AS (
 
        SELECT a.*
