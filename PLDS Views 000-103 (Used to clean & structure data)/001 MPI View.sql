@@ -1,3 +1,9 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- INNER JOIN on [chc].[vw_000_Header_Current] returns latest record per reporting period (re-submissions create duplicates which are all within the Header table, so view excludes the earlier versions) 
+-- View also creates calculation of RecordEndDate based on the following record's RecordStartDate (RecordEndDate = NULL indicates the latest record)
+-- Descriptive columns brought in from relevant reference tables [NHSE_Sandbox_CHC].[dbo].[PLDS.Ref_] 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 SELECT a.[CHC_Load_ID]
       ,[LocalPatientId]
       ,[OrgIDLocalPatientId]
