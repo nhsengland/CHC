@@ -1,3 +1,12 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- First CTE - using the PLDS_Reviews view, where a care package has two or more reviews associated with it, the number of days between subsequent reviews
+-- is calculated. 
+-- Second CTE - joins the care package and referral data from the main PLDS views (102, 101, 000) to the number of days calculated in the first CTE.
+-- Various combinations of the fields [ReviewTypeCodeCHCCarePackage], [ReviewNumber], [DaysBetweenReviews] and [CommEligibilityDecisionDateStandardCHC] are
+-- used to identify whether a review was due, whether it took place on schedule or if various data quality issues are present.
+-- This view feeds the PLDS Reviews dashboard.
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 WITH CTE AS (
 SELECT   a.[ReviewNumber]
 		,a.[CarePackageLocalPatientID]
